@@ -29,29 +29,22 @@
         <div class="row">
 
             <!-- CONTAINER 1: SIDEBAR -->
-            <!-- Search bar & City list. Searching a city adds it to the list. Clicking the list changes the content of the rest of the page. -->
-            <aside class="col-sm-2">
+            <aside class="col-sm-2 bg-light my-2">
                 <h5>Search for a City:</h5>
                 <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                    <input class="form-control" id="searchBar" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary my-2 my-sm-0" id="searchButton" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
 
-                <div>
-                    <p>Testing</p>
+                <div class="card my-3">
+                    <ul class="list-group list-group-flush" id="cityList">
+                        <li class="list-group-item">Austin</li>
+                        <li class="list-group-item">Orlando</li>
+                        <li class="list-group-item">Seattle</li>
+                    </ul>
                 </div>
-                <div>
-                    <p>Testing</p>
-                </div>
-                <div>
-                    <p>Testing</p>
-                </div>
-                <div>
-                    <p>Testing</p>
-                </div>
-
             </aside>
 
 
@@ -63,15 +56,69 @@
             <!-- CONTAINER 2: SUBGRID INSIDE -->
             <article class="col-sm">
 
-                <!-- First Row: weather stats. Temperature. Humidity. Wind speed. and UV Index. -->
+                <!-- WEATHER STATS -->
                 <section class="row">
-                    <p>WEATHER STATS</p>
+                    <div class="col-sm card m-3 p-3">
+                        <h2 id="cityHeader">Seattle (6/21/2020</h2>
+                        <br>
+                        <p id="cityTemperature">Temperature:</p>
+                        <p id="cityHumidity">Humidity:</p>
+                        <p id="cityWindSpeed">Wind Speed:</p>
+                        <p id="cityUVIndex">UV Index:</p>
+                    </div>
                 </section>
 
 
                 <!-- Second Row: Weather cards that contain a 5 day forecast. Day/Image of Weather/Temp/Humidity listed -->
                 <section class="row">
-                    <p>5-DAY FORECAST</p>
+                    <div class="col-sm">
+                        <h3>5-Day Forecast:</h3>
+
+                        <!-- FORECAST CARDS -->
+                        <div class="card-deck">
+
+                            <div class="card bg-primary text-white mx-3 my-1 rounded">
+                                <div class="card-body">
+                                    <h4 class="card-title" id="card1Date">Date</h5>
+                                    <p class="card-text" id="card1Temperature">Temperature</p>
+                                    <p class="card-text" id="card1Humidity">Humidity</p>
+                                </div>
+                            </div>
+
+                            <div class="card bg-primary text-white mx-3 my-1 rounded">
+                                <div class="card-body">
+                                    <h4 class="card-title" id="card2Date">Date</h5>
+                                    <p class="card-text" id="card2Temperature">Temperature</p>
+                                    <p class="card-text" id="card2Humidity">Humidity</p>
+                                </div>
+                            </div>
+
+                            <div class="card bg-primary text-white mx-3 my-1 rounded">
+                                <div class="card-body">
+                                    <h4 class="card-title" id="card3Date">Date</h5>
+                                    <p class="card-text" id="card3Temperature">Temperature</p>
+                                    <p class="card-text" id="card3Humidity">Humidity</p>
+                                </div>
+                            </div>
+
+                            <div class="card bg-primary text-white mx-3 my-1 rounded">
+                                <div class="card-body">
+                                    <h4 class="card-title" id="card4Date">Date</h5>
+                                    <p class="card-text" id="card4Temperature">Temperature</p>
+                                    <p class="card-text" id="card4Humidity">Humidity</p>
+                                </div>
+                            </div>
+
+                            <div class="card bg-primary text-white mx-3 my-1 rounded">
+                                <div class="card-body">
+                                    <h4 class="card-title" id="card5Date">Date</h5>
+                                    <p class="card-text" id="card5Temperature">Temperature</p>
+                                    <p class="card-text" id="card5Humidity">Humidity</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </section>
 
 
