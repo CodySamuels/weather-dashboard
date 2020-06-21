@@ -25,12 +25,12 @@
 
 
     <!-- MAIN GRID SETUP -->
-    <div class="container-fluid">
-        <div class="row no-gutters">
+    <main class="container-fluid">
+        <div class="row">
 
             <!-- CONTAINER 1: SIDEBAR -->
             <!-- Search bar & City list. Searching a city adds it to the list. Clicking the list changes the content of the rest of the page. -->
-            <div class="col-sm-2">
+            <aside class="col-sm-2">
                 <h5>Search for a City:</h5>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -52,7 +52,7 @@
                     <p>Testing</p>
                 </div>
 
-            </div>
+            </aside>
 
 
 
@@ -61,26 +61,26 @@
 
 
             <!-- CONTAINER 2: SUBGRID INSIDE -->
-            <div class="col-sm">
+            <article class="col-sm">
 
                 <!-- First Row: weather stats. Temperature. Humidity. Wind speed. and UV Index. -->
-                <div class="row">
+                <section class="row">
                     <p>WEATHER STATS</p>
-                </div>
+                </section>
 
 
                 <!-- Second Row: Weather cards that contain a 5 day forecast. Day/Image of Weather/Temp/Humidity listed -->
-                <div class="row">
+                <section class="row">
                     <p>5-DAY FORECAST</p>
-                </div>
+                </section>
 
 
 
 
 
-            </div>
+            </article>
         </div>
-    </div>
+    </main>
 
     <!-- JAVASCRIPT FOR BOOTSTRAP -->
     <div>
