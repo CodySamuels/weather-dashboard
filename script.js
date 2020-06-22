@@ -10,10 +10,7 @@ var cityLong = "";
 var imgToAttach = "";
 var cityArray = ["Seattle", "Whitewright"];
 
-// renderTables();
 renderSideBar();
-
-
 
 // FUNCTIONS
 function renderTables(cityName) {
@@ -59,19 +56,21 @@ function renderSideBar() {
         newLi.attr("id", ("city" + [i]))
         newLi.text(cityArray[i]);
         $("#cityList").append(newLi)
-    }
-}
-
-function addEventListenersToCities() {
-    for (let i = 0; i < cityArray.length; i++) {
-        renderSideBar();
         $("#city" + [i]).on("click", function (event) {
-            var cityInput = cityArray[i]
-            // console.log(cityInput);
+            var cityInput = (cityArray[i])
             renderTables(cityInput)
         });
     }
 }
+
+// function addEventListenersToCities() {
+//     for (let i = 0; i < cityArray.length; i++) {
+//         $("#city" + [i]).on("click", function (event) {
+//             var cityInput = cityArray[i]
+//             renderTables(cityInput)
+//         });
+//     }
+// }
 
 // EVENT LISTENERS
 $("#searchButton").on("click", function (event) {
@@ -79,4 +78,5 @@ $("#searchButton").on("click", function (event) {
     var cityInput = $("#searchBar").val().trim();
     cityArray.push(cityInput);
     renderSideBar();
+
 });
