@@ -1,15 +1,10 @@
-// IDS TO KNOW
-
-
-// cityList
-
-
 // GLOBAL VARIABLES
 var cityLat = "";
 var cityLong = "";
 var imgToAttach = "";
 var cityArray = ["Seattle", "Whitewright"];
 
+// RUN ON PAGE LOAD
 renderSideBar();
 
 // FUNCTIONS
@@ -25,7 +20,7 @@ function renderTables(cityName) {
             cityLong = response.city.coord.lon;
             queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + cityLat + "&lon=" + cityLong + "&units=imperial&exclude=minutely,hourly&appid=" + APIKey
             plzSendHelp = response
-            $("#cityHeader").text(cityName)
+            $("#cityHeaderName").text(cityName)
 
             $.ajax({
                 url: queryURL,
@@ -33,13 +28,17 @@ function renderTables(cityName) {
             })
                 .then(function (response) {
                     plzSendHelp2 = response
-                    $("#cityTemperature").text("Temperature: " + response.current.temp + " F");
+                    var currentDate = moment().format("MMM Do, YYYY");
+                    $("#cityHeaderDate").text("("+ currentDate+")");
+                    
+                    $("#cityHeaderImg").attr("src", "http://openweathermap.org/img/wn/" + (response.current.weather[0].icon) + ".png");
+                    $("#cityTemperature").text("Temperature: " + response.current.temp + "°F");
                     $("#cityHumidity").text("Humidity: " + response.current.humidity + "%");
                     $("#cityWindSpeed").text("Wind Speed: " + response.current.wind_speed + "mph");
                     $("#cityUVIndex").text("UV Index: " + response.current.uvi);
 
                     for (let i = 0; i <= 4; i++) {
-                        $("#card" + i + "Temperature").text("Temperature: " + response.daily[i].temp.day + " F");
+                        $("#card" + i + "Temperature").text("Temperature: " + response.daily[i].temp.day + " °F");
                         $("#card" + i + "Humidity").text("Humidity: " + response.daily[i].humidity + "%");
                         imgToAttach = response.daily[i].weather[0].icon
                         $("#card" + i + "Img").attr("src", "http://openweathermap.org/img/wn/" + imgToAttach + ".png");
@@ -62,15 +61,6 @@ function renderSideBar() {
         });
     }
 }
-
-// function addEventListenersToCities() {
-//     for (let i = 0; i < cityArray.length; i++) {
-//         $("#city" + [i]).on("click", function (event) {
-//             var cityInput = cityArray[i]
-//             renderTables(cityInput)
-//         });
-//     }
-// }
 
 // EVENT LISTENERS
 $("#searchButton").on("click", function (event) {
