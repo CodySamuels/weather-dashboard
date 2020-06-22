@@ -8,7 +8,7 @@
 var cityLat = "";
 var cityLong = "";
 var imgToAttach = "";
-var cityArray = ["Seattle, Whitewright"];
+var cityArray = ["Seattle", "Whitewright"];
 
 // renderTables();
 renderSideBar();
