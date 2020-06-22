@@ -1,0 +1,20 @@
+.greenLowUVIButton {
+background-color: green;
+color: whitesmoke;
+}
+.yellowModerateUVIButton {
+background-color: yellow;
+color: black;
+}
+.orangeHighUVIButton {
+background-color: orangered;
+color: whitesmoke;
+}
+.redVeryHighUVIButton {
+background-color: red;
+color: whitesmoke;
+}
+.violetExtremUVIButton {
+background-color:violet;
+color: whitesmoke;
+}
