@@ -30,14 +30,15 @@ function renderTables(cityName) {
                     plzSendHelp2 = response
                     var currentDate = moment().format("MMM Do, YYYY");
                     $("#cityHeaderDate").text("("+ currentDate+")");
-                    
                     $("#cityHeaderImg").attr("src", "http://openweathermap.org/img/wn/" + (response.current.weather[0].icon) + ".png");
                     $("#cityTemperature").text("Temperature: " + response.current.temp + "°F");
                     $("#cityHumidity").text("Humidity: " + response.current.humidity + "%");
                     $("#cityWindSpeed").text("Wind Speed: " + response.current.wind_speed + "mph");
                     $("#cityUVIndex").text("UV Index: " + response.current.uvi);
 
-                    for (let i = 0; i <= 4; i++) {
+                    for (let i = 0, x = 1; i <= 4; i++,x++) {
+                        currentDate = moment().add(x, 'days').format("MM/DD/YYYY")
+                        $("#card" + i + "Date").text(currentDate)
                         $("#card" + i + "Temperature").text("Temperature: " + response.daily[i].temp.day + " °F");
                         $("#card" + i + "Humidity").text("Humidity: " + response.daily[i].humidity + "%");
                         imgToAttach = response.daily[i].weather[0].icon
