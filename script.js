@@ -1,28 +1,27 @@
 // IDS TO KNOW
 
-// searchBar
-// searchButton
+
 // cityList
 
 
 // GLOBAL VARIABLES
 var APIKey = "20139dab005aa19921ee9f2798f4a2e7";
-var cityName = "Seattle";
+// var cityName = "Seattle";
 var cityLat = "";
 var cityLong = "";
-var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + APIKey;
-var plzSendHelp = ""
-var plzSendHelp2 = ""
-var imgToAttach = ""
-
+// var plzSendHelp = "";
+// var plzSendHelp2 = "";
+var imgToAttach = "";
+var cityArray = ["Seattle", "Whitewright"];
 
 // renderTables();
-
+renderSideBar();
 
 
 
 // FUNCTIONS
-function renderTables() {
+function renderTables(cityName) {
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + APIKey;
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -53,4 +52,30 @@ function renderTables() {
                     }
                 });
         });
+}
+function renderSideBar() {
+    $("#cityList").empty();
+for (let i = 0; i < cityArray.length; i++) {
+    var newLi = $("<li>");
+    newLi.addClass("list-group-item");
+    newLi.attr("id", ("city"+[i]))
+    newLi.text(cityArray[i]);
+    $("#cityList").append(newLi)
+}
+}
+
+// EVENT LISTENERS
+$("#searchButton").on("click", function(event) {
+    event.preventDefault();
+    var cityInput = $("#searchBar").val().trim();
+    cityArray.push(cityInput);
+    renderSideBar();
+});
+
+for (let i = 0; i < cityArray.length; i++) {
+    $("#city"+[i]).on("click", function(event) {
+        var cityInput = cityArray[i]
+        // console.log(cityInput);
+        renderTables(cityInput)
+    });
 }
