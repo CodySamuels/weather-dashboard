@@ -13,7 +13,6 @@ The website is designed to be mobile-friendly and responsive.
 
 
 
-
 ## User Story
 
 ```
