@@ -1,8 +1,18 @@
 # 06 Server-Side APIs: Weather Dashboard
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
+## Deployed Application Screenshot
+
+![firstscreenshot](./assets/ss1.png)
+
+Application deploys with no city data stored. The user must first input the city they'd like to search before any data will populate on the page. The cities added to the list remain on page refresh. 
+
+The data on the main page contains a variety of useful weather information, and a 5 day forecast.
+
+The website is designed to be mobile-friendly and responsive.
+
+
+
 
 ## User Story
 
@@ -30,17 +40,15 @@ WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
 
-The following image demonstrates the application functionality:
+## GitHub Links
+https://github.com/CodySamuels/weather-dashboard
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
+https://codysamuels.github.io/weather-dashboard/
 
-## Review
+## Additional Screenshots
+Screenshot displaying the changing UV Index.
+![UVI screenshot](./assets/ss2.png)
 
-You are required to submit the following for review:
+Mobile display.
 
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+![Mobile Screenshot](./assets/ss3.png)
