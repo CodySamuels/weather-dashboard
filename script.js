@@ -50,7 +50,7 @@ function renderTables(cityName) {
                         $("#cityUVIButton").addClass("orangeHighUVIButton btn");
                     } else if (uviInt > 7 && uviInt <= 10) {
                         $("#cityUVIButton").addClass("redVeryHighUVIButton btn");
-                    } else if (uviInt >= 11){
+                    } else if (uviInt >= 11) {
                         $("#cityUVIButton").addClass("violetExtremeUVIButton btn");
                     };
 
@@ -70,21 +70,34 @@ function renderTables(cityName) {
 function renderSideBar() {
 
     $("#cityList").empty();
-    
-    
+
     for (let i = 0; i < cityArray.length; i++) {
         var newLi = $("<li>");
+        var deleteButton = $("<button>")
+        var deleteButtonInside = $("<i>")
 
-        newLi.addClass("list-group-item");
+        newLi.addClass("list-group-item d-flex justify-content-between align-items-center");
+        deleteButton.addClass("btn btn-danger")
+        deleteButtonInside.addClass("fas fa-times")
+
         newLi.attr("id", ("city" + [i]))
-        newLi.text(cityArray[i]);
+        deleteButton.attr("id", ("deleteButton" + [i]))
 
+        newLi.text(cityArray[i]);
+        newLi.append(deleteButton)
+        deleteButton.append(deleteButtonInside)
         $("#cityList").append(newLi)
+
         $("#city" + [i]).on("click", function (event) {
 
             var cityInput = (cityArray[i])
 
             renderTables(cityInput)
+        });
+
+        $("#deleteButton" + [i]).on("click", function (event) {
+           cityArray.splice(i, 1)
+           renderSideBar();
         });
     }
 };
@@ -94,7 +107,7 @@ $("#searchButton").on("click", function (event) {
     event.preventDefault();
 
     var cityInput = $("#searchBar").val().trim();
-    
+
     cityArray.push(cityInput);
     localStorage.setItem("cityData", JSON.stringify(cityArray))
     renderSideBar();
