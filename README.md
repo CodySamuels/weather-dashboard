@@ -3,7 +3,7 @@
 
 ## Deployed Application Screenshot
 
-![firstscreenshot](./assets/ss1.png)
+![firstscreenshot](./screenshots/ss1.png)
 
 Application deploys with no city data stored. The user must first input the city they'd like to search before any data will populate on the page. The cities added to the list remain on page refresh. 
 
@@ -46,8 +46,8 @@ https://codysamuels.github.io/weather-dashboard/
 
 ## Additional Screenshots
 Screenshot displaying the changing UV Index.
-![UVI screenshot](./assets/ss2.png)
+![UVI screenshot](./screenshots/ss2.png)
 
 Mobile display.
 
-![Mobile Screenshot](./assets/ss3.png)
+![Mobile Screenshot](./screenshots/ss3.png)
