@@ -42,8 +42,8 @@ function renderTables(cityName) {
                     $("#cityUVIButton").text(response.current.uvi);
                     $("#cityUVIButton").removeClass();
 
-                    if (uviInt <= 2) {
-                        $("#cityUVIButton").addClass("greenlowUVIButton btn");
+                    if (uviInt < 2) {
+                        $("#cityUVIButton").addClass("greenLowUVIButton btn");
                     } else if (uviInt > 2 && uviInt <= 5) {
                         $("#cityUVIButton").addClass("yellowModerateUVIButton btn");
                     } else if (uviInt > 5 && uviInt <= 7) {
@@ -70,7 +70,8 @@ function renderTables(cityName) {
 function renderSideBar() {
 
     $("#cityList").empty();
-
+    
+    
     for (let i = 0; i < cityArray.length; i++) {
         var newLi = $("<li>");
 
@@ -93,8 +94,9 @@ $("#searchButton").on("click", function (event) {
     event.preventDefault();
 
     var cityInput = $("#searchBar").val().trim();
-
+    
     cityArray.push(cityInput);
     localStorage.setItem("cityData", JSON.stringify(cityArray))
     renderSideBar();
+    $("#searchBar").val("")
 });
