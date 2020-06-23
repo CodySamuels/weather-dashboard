@@ -19,8 +19,8 @@ function renderTables(cityName) {
     $("article").addClass("col-md")
     $("#weatherStatsElement").show()
     $("#forecastStatsElement").show()
-    
-// FIRST QUERY TO GET LATITUDE/LONGITUDE
+
+    // FIRST QUERY TO GET LATITUDE/LONGITUDE
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -47,7 +47,7 @@ function renderTables(cityName) {
 
                     // POPULATES THE MAIN ARTICLE WITH DATA.
                     $("#cityHeaderDate").text("(" + currentDate + ")");
-                    $("#cityHeaderImg").attr("src", "http://openweathermap.org/img/wn/" + (response.current.weather[0].icon) + ".png");
+                    $("#cityHeaderImg").attr("src", "https://openweathermap.org/img/wn/" + (response.current.weather[0].icon) + ".png");
                     $("#cityTemperature").text("Temperature: " + response.current.temp + " °F");
                     $("#cityHumidity").text("Humidity: " + response.current.humidity + "%");
                     $("#cityWindSpeed").text("Wind Speed: " + response.current.wind_speed + " mph");
@@ -75,7 +75,7 @@ function renderTables(cityName) {
                         $("#card" + i + "Date").text(currentDate)
                         $("#card" + i + "Temperature").text("Temperature: " + response.daily[i].temp.day + " °F");
                         $("#card" + i + "Humidity").text("Humidity: " + response.daily[i].humidity + "%");
-                        $("#card" + i + "Img").attr("src", "http://openweathermap.org/img/wn/" + imgToAttach + ".png");
+                        $("#card" + i + "Img").attr("src", "https://openweathermap.org/img/wn/" + imgToAttach + ".png");
                     };
                 });
         });
@@ -112,15 +112,20 @@ function renderSideBar() {
         // ADDS EVENT LISTENERS TO THE ITEMS THAT RUN RENDER TABLES WITH THE CITY NAME
         $("#city" + [i]).on("click", function (event) {
 
-            var cityInput = (cityArray[i])
+            // ADDS A BACKGROUND TO WHICHEVER YOU'RE ON
+            $("li").removeClass("bg-secondary text-white")
+            $(this).addClass("bg-secondary text-white")
 
+            var cityInput = (cityArray[i])
             renderTables(cityInput)
         });
 
         // EVENT LISTENER THAT REMOVES AN ITEM FROM THE SIDEBAR
         $("#deleteButton" + [i]).on("click", function (event) {
-           cityArray.splice(i, 1)
-           renderSideBar();
+            cityArray.splice(i, 1)
+            console.log(cityArray)
+            localStorage.setItem("cityData", JSON.stringify(cityArray))
+            renderSideBar();
         });
     }
 };
